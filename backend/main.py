@@ -12,7 +12,7 @@ from SuburbModel import SuburbModel
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # URL of React application
+    allow_origins=["*"],  # URL of React application
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
