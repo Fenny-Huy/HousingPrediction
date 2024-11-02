@@ -4,8 +4,7 @@ on:
   push:
     branches:
       - main  # Adjust if your deployment branch is different
-    paths:
-      - 'backend/**'  # Only triggers when files in the backend folder change
+    
 
 jobs:
   build-and-deploy:
