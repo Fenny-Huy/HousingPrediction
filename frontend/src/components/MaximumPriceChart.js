@@ -13,7 +13,7 @@ function MaximumPriceChart({ curveData, maxPriceData, predictedPoint }) {
   // Add color property to each point for visualization purposes.
   const coloredData = combinedData.map(point => ({
     ...point,
-    color: point.Price === predictedPoint[0].Price ? 'yellow' : 'red'
+    color: point.Price === predictedPoint[0].Price ? 'blue' : 'red'
   }));
 
 
@@ -79,7 +79,7 @@ function MaximumPriceChart({ curveData, maxPriceData, predictedPoint }) {
                 name="Combined Data" 
                 data={coloredData} 
                 shape={(props) => (
-                  <circle cx={props.cx} cy={props.cy} r={props.color === 'yellow' ? 8 : 4} fill={props.color} />
+                  <circle cx={props.cx} cy={props.cy} r={props.color === 'blue' ? 8 : 4} fill={props.color} />
                 )}
               />
             </ScatterChart>
