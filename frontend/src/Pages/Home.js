@@ -35,7 +35,7 @@ function Home() {
         }}>
             <Container component="main" sx={{ marginTop: 4, marginBottom: 2, textAlign: "center"}}>
                 <Typography variant="h2" component="h1" gutterBottom>
-                    La Vageulette
+                    La Vaguelette
                 </Typography>
                 <Typography variant="h2" component="h1" gutterBottom>
                     AI Housing Prediciton Tool

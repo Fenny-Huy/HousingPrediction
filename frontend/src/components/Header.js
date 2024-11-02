@@ -8,7 +8,7 @@ function Header() {
             <Toolbar>
                 <Button color="inherit" component={Link} to="/" sx={{ marginRight: "auto" }} >
                     <Typography variant="h6">
-                        La Vageulette
+                        La Vaguelette
                     </Typography>
                 </Button>
                 <Button color="inherit" component={Link} to="/liveable">
