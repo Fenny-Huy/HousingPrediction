@@ -19,11 +19,11 @@ function MaximumPrice() {
 
     try {
       // Fetch predicted price
-      const response = await axios.get(`http://localhost:8000/maximumprice/predict/${distance}`);
+      const response = await axios.get(`https://housingbackend-c0d9bkdrfsdqf7eb.australiaeast-01.azurewebsites.net/maximumprice/predict/${distance}`);
       setPredictedPrice(response.data.predicted_price);
       setDistance(distance)
       // Fetch curve and max price data from the backend
-      const curveResponse = await axios.get('http://localhost:8000/maximumprice/curve-data');
+      const curveResponse = await axios.get('https://housingbackend-c0d9bkdrfsdqf7eb.australiaeast-01.azurewebsites.net/maximumprice/curve-data');
       setCurveData(curveResponse.data.curve_data);
       setMaxPriceData(curveResponse.data.max_price_data);
       

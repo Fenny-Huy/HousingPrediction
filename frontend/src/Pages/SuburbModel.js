@@ -37,7 +37,7 @@ function SuburbModel() {
     setLoading(true);
 
     try {
-      const response = await axios.get(`http://localhost:8000/suburbmodel/predict/${landSize}/${price}`);
+      const response = await axios.get(`https://housingbackend-c0d9bkdrfsdqf7eb.australiaeast-01.azurewebsites.net/suburbmodel/predict/${landSize}/${price}`);
       setSuburbResults(response.data.predicted_suburbs);
       setClusterCentres(response.data.cluster_centers);
       setScaledInput(response.data.scaled_input);
