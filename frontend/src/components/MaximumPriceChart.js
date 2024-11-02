@@ -22,9 +22,32 @@ function MaximumPriceChart({ curveData, maxPriceData, predictedPoint }) {
     return tickItem.toFixed(2); // Round to 2 decimal places.
   };
 
+  const formatTooltipValue = (value) => {
+    return value.toFixed(2); // Round to two decimal places
+  };
+
+  const CustomTooltip = ({ active, payload }) => {
+    if (active && payload && payload.length) {
+      const distanceValue = payload[0].payload.Distance;
+      const priceValue = payload[0].payload.Price;
+      return (
+        <div className="custom-tooltip" style={{
+          backgroundColor: 'white', // Set background color
+          border: '1px solid #ccc', // Optional: add a border
+          borderRadius: '4px', // Optional: rounded corners
+          padding: '10px', // Add padding for better spacing
+          boxShadow: '0 2px 8px rgba(0,0,0,0.15)' // Optional: shadow for depth
+        }}>
+          <p>{`Distance: ${parseFloat(distanceValue).toFixed(2)}`}</p>
+          <p>{`Price: $${parseFloat(priceValue).toFixed(2)}`}</p>
+        </div>
+      );
+    }
+    return null;
+  };
   return (
     <>
-      {predictedPoint[0].Price !=0 && (
+      {predictedPoint[0].Price !==0 && (
         <div className="chart2-container">
           <div className='chart'>
 
@@ -33,7 +56,7 @@ function MaximumPriceChart({ curveData, maxPriceData, predictedPoint }) {
             <LineChart width={600} height={400} data={curveData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
               <XAxis dataKey="Distance" tickFormatter={formatXAxis}/>
               <YAxis />
-              <Tooltip />
+              <Tooltip content={<CustomTooltip />} />
               <CartesianGrid strokeDasharray="3 3" />
               
               {/* Black curve representing the prediction model */}
@@ -51,7 +74,7 @@ function MaximumPriceChart({ curveData, maxPriceData, predictedPoint }) {
               <XAxis dataKey="Distance" name="Distance" />
               <YAxis dataKey="Price" name="Price" />
               <Tooltip cursor={{ strokeDasharray: '3 3' }} />
-
+              <Line type="monotone" data={curveData} stroke="black" dot={false} />
               <Scatter 
                 name="Combined Data" 
                 data={coloredData} 

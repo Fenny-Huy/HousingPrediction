@@ -108,14 +108,43 @@ function SuburbModel() {
             {error}
           </Typography>
         )}
-
-        {dataPoints.length > 0 && clusterCentres.length > 0 && scaledInput.length > 0 && (
+        {landSize > 0 && landSize < 100000 && price > 0 && price < 9000000 && (
+          <>
+          {dataPoints.length > 0 && clusterCentres.length > 0 && scaledInput.length > 0 && (
           <SuburbModelChart chartData={chartData} />
-        )}
+          )}
 
-        {suburbResults.length > 0 && (
-          <SuburbModelResult suburbResults={suburbResults} />
+          {suburbResults.length > 0 && (
+            <SuburbModelResult suburbResults={suburbResults} />
+          )}
+          </>          
+        )} 
+
+        {(landSize < 0 || landSize > 100000) && (
+          <Typography variant="h5" gutterBottom sx={{ 
+            color: 'green', // Change color as needed
+            fontWeight: 'bold', // Make it bold
+            fontSize: '1.5rem', // Adjust font size
+            marginTop: '20px', // Add some space above
+            textAlign: 'center' // Center the text
+          }}  className='predicted-price'>
+          Please enter a land size between 0 and 100000
+        </Typography>
         )}
+        
+
+        {(price < 0 || price > 9000000) && (
+          <Typography variant="h5" gutterBottom sx={{ 
+            color: 'green', // Change color as needed
+            fontWeight: 'bold', // Make it bold
+            fontSize: '1.5rem', // Adjust font size
+            marginTop: '20px', // Add some space above
+            textAlign: 'center' // Center the text
+          }}  className='predicted-price'>
+          Please enter a price between 0 and 9000000
+        </Typography>
+        )}
+        
       </Box>
     </Container>
   );

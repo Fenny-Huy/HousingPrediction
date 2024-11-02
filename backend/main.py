@@ -72,7 +72,13 @@ async def get_curve_data():
 @app.get("/liveablearea/predict/{suburb}")
 async def predict_liveable_area(suburb: str):
     prediction = liveable_model.predict(suburb)
+    if prediction is None: 
+        prediction = "unknown"
+    
+    
+
     return {"predicted_liveable_area": prediction}
+    
 
 
 
