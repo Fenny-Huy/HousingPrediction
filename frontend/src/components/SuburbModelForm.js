@@ -11,7 +11,7 @@ function SuburbModelForm({ landSize, price, setLandSize, setPrice, handleSubmit,
           <TextField
             fullWidth
             type="number"
-            label="Land Size"
+            label="Land Size (m^2)"
             variant="outlined"
             value={landSize}
             onChange={(e) => setLandSize(e.target.value)}

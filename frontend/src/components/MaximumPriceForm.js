@@ -14,7 +14,7 @@ function MaximumPriceForm({ onSubmit }) {
     <form onSubmit={handleSubmit}>
       <TextField
         fullWidth
-        label="Enter Distance"
+        label="Enter Distance from CBD"
         type="number"
         value={distance}
         onChange={(e) => setDistance(e.target.value)}
