@@ -30,6 +30,7 @@ jobs:
       - name: 'Deploy to Azure WebApp'
         uses: azure/webapps-deploy@v2
         with:
-          publish-profile: 'BACKEND'
           app-name: 'HousingBackend'
+          slot-name: 'production'
+          publish-profile: 'BACKEND'
           package: './backend'
