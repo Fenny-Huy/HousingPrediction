@@ -20,8 +20,19 @@ function MaximumPrice() {
     try {
       // Fetch predicted price
       const response = await axios.get(`https://housingbackend-c0d9bkdrfsdqf7eb.australiaeast-01.azurewebsites.net/maximumprice/predict/${distance}`);
-      setPredictedPrice(response.data.predicted_price);
-      setDistance(distance)
+      if ((distance <0) || (distance > 50))
+      {
+        
+        setPredictedPrice(0)
+        setDistance(0)
+      }
+      else
+      {
+        setPredictedPrice(response.data.predicted_price);
+        setDistance(distance)
+      }
+      
+      
       // Fetch curve and max price data from the backend
       const curveResponse = await axios.get('https://housingbackend-c0d9bkdrfsdqf7eb.australiaeast-01.azurewebsites.net/maximumprice/curve-data');
       setCurveData(curveResponse.data.curve_data);
