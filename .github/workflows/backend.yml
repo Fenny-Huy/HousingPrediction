@@ -37,7 +37,7 @@ jobs:
       - name: 'Deploy to Azure WebApp'
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'HousingBackend'
+          app-name: 'HousingPredictionBackend'
           publish-profile: ${{ secrets.BACKEND }}
           package: './backend'
 
