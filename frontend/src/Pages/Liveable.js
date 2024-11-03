@@ -17,7 +17,7 @@ function Liveable() {
     setLoading(true);
 
     try {
-      const response = await axios.get(`https://housingbackend-c0d9bkdrfsdqf7eb.australiaeast-01.azurewebsites.net/liveablearea/predict/${suburb}`);
+      const response = await axios.get(`https://housingpredictionbackend-c9hwedazcjezc0ae.australiasoutheast-01.azurewebsites.net/liveablearea/predict/${suburb}`);
       setPrediction(response.data.predicted_liveable_area);
     } catch (err) {
       setError('Error predicting liveable area. Please try again.');

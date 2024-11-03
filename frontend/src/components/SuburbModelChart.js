@@ -6,8 +6,7 @@ function SuburbModelChart({ chartData }) {
   
    return (
      <div className="chart-container">
-       {/* Render your scatter plot here using chartData */}
-       {/* Assuming you have already installed react-chartjs-2 and chart.js */}
+       
        <Scatter data={chartData} options={{
          responsive: true,
          maintainAspectRatio: false,

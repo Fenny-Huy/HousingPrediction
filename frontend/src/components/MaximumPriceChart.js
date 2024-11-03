@@ -4,13 +4,13 @@ import { LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, Scatter, Scatter
 
 function MaximumPriceChart({ curveData, maxPriceData, predictedPoint }) {
   
-  // Prepare combined data for charting.
+  // Prepare combined data for chart
   const combinedData = [
     ...maxPriceData,
     ...(predictedPoint ? predictedPoint : [{"Distance": 0, "Price":0}])
   ].sort((a, b) => parseFloat(a.Distance) - parseFloat(b.Distance));
 
-  // Add color property to each point for visualization purposes.
+  // Add color property to each point for visualization
   const coloredData = combinedData.map(point => ({
     ...point,
     color: point.Price === predictedPoint[0].Price ? 'blue' : 'red'
@@ -33,8 +33,8 @@ function MaximumPriceChart({ curveData, maxPriceData, predictedPoint }) {
       return (
         <div className="custom-tooltip" style={{
           backgroundColor: 'white', // Set background color
-          border: '1px solid #ccc', // Optional: add a border
-          borderRadius: '4px', // Optional: rounded corners
+          border: '1px solid #ccc', // add a border
+          borderRadius: '4px', // rounded corners
           padding: '10px', // Add padding for better spacing
           boxShadow: '0 2px 8px rgba(0,0,0,0.15)' // Optional: shadow for depth
         }}>
@@ -62,7 +62,7 @@ function MaximumPriceChart({ curveData, maxPriceData, predictedPoint }) {
               {/* Black curve representing the prediction model */}
               <Line type="monotone" dataKey="Price" stroke="black" dot={false} />
               
-              {/* Scatter plot for combined data */}
+              
               
             </LineChart>
           </div>
